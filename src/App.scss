@@ -1,0 +1,26 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  color: white;
+  background-color: #0197f6;
+  //   font-family: "Fredoka One", cursive;
+  //   font-family: "Outfit", sans-serif;
+  .App-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .Tasko {
+    font-size: 3rem;
+    font-family: "Pacifico", cursive;
+  }
+}
+
+.Fredoka {
+  font-family: "Fredoka One", cursive;
+}
+
+.Outfit {
+  font-family: "Outfit", sans-serif;
+}
