@@ -11,12 +11,21 @@ import { StyledTaskBoard } from "./styles/StyledTaskBoard";
 // audio
 import DropAudio from "../../assets/audio/drop.mp3";
 import CheerAudio from "../../assets/audio/cheer.mp3";
+import Modal from "../../components/Modal/Modal";
 
 function TaskBoard() {
   const [dropAudio] = useState(new Audio(DropAudio));
   const [cheerAudio] = useState(new Audio(CheerAudio));
 
   const [tasko, setTasko] = useState(initialData);
+  const [showAddTask, setShowAddTask] = useState(false);
+
+  const handleShowAddTask = () => {
+    setShowAddTask(true);
+  };
+  const handleHideAddTask = () => {
+    setShowAddTask(false);
+  };
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
@@ -96,6 +105,15 @@ function TaskBoard() {
           })}
         </div>
       </DragDropContext>
+      <div>
+        <button onClick={handleShowAddTask}>Add</button>
+        <Modal
+          show={showAddTask}
+          handleClose={handleHideAddTask}
+          title="Add Task"
+        >
+        </Modal>
+      </div>
     </StyledTaskBoard>
   );
 }

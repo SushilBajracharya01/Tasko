@@ -7,6 +7,7 @@ export const initialData = {
         title: "Bug fixing",
         project: "Sifarish",
         description: "fix loading bug",
+        priority: 3
       },
     },
     "task-2": {
@@ -15,6 +16,7 @@ export const initialData = {
         title: "Search implementation",
         project: "Sifarish",
         description: "Implement search in Citizen page",
+        priority: 3
       },
     },
     "task-3": {
@@ -23,6 +25,7 @@ export const initialData = {
         title: "Conference call button add",
         project: "Optonome",
         description: "Add Conference call button in channel",
+        priority: 3
       },
     },
   },

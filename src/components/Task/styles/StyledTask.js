@@ -7,5 +7,11 @@ export const StyledTask = styled.div`
   margin: 0 0 0.8rem 0;
   h2 {
     margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .description {
+    background: #f0f9ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
   }
 `;

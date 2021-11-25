@@ -15,8 +15,10 @@ function Task({ content, id, index }) {
         >
           <span>{content.project}</span>
           <h2>{content.title}</h2>
-          <p>Description</p>
-          <p>{content.description}</p>
+          <p>
+            Description:
+            <p className="description">{content.description}</p>
+          </p>
         </StyledTask>
       )}
     </Draggable>
