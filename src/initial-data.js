@@ -1,8 +1,8 @@
 export const initialData = {
   title: "Thursday, Nov 25, 2021",
   tasks: {
-    "task-1": {
-      id: "task-1",
+    "task-0": {
+      id: "task-0",
       content: {
         title: "Bug fixing",
         project: "Sifarish",
@@ -10,8 +10,8 @@ export const initialData = {
         priority: 3
       },
     },
-    "task-2": {
-      id: "task-2",
+    "task-1": {
+      id: "task-1",
       content: {
         title: "Search implementation",
         project: "Sifarish",
@@ -19,8 +19,8 @@ export const initialData = {
         priority: 3
       },
     },
-    "task-3": {
-      id: "task-3",
+    "task-2": {
+      id: "task-2",
       content: {
         title: "Conference call button add",
         project: "Optonome",
@@ -33,7 +33,7 @@ export const initialData = {
     "column-1": {
       id: "column-1",
       title: "BackLog",
-      tasksId: ["task-1", "task-2", "task-3"],
+      tasksId: ["task-0", "task-1", "task-2"],
     },
     "column-2": {
       id: "column-2",

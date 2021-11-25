@@ -17,7 +17,7 @@ function Task({ content, id, index }) {
           <h2>{content.title}</h2>
           <p>
             Description:
-            <p className="description">{content.description}</p>
+            <span className="description">{content.description}</span>
           </p>
         </StyledTask>
       )}

@@ -10,6 +10,7 @@ export const StyledTask = styled.div`
     margin-bottom: 0.5rem;
   }
   .description {
+    display: block;
     background: #f0f9ff;
     padding: 0.2rem 0.6rem;
     border-radius: 5px;

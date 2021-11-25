@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
+import { useForm } from "react-hook-form";
 
 // Components
 import Column from "../../components/Column/Column";
@@ -8,12 +9,21 @@ import { initialData } from "../../initial-data";
 // Styles
 import { StyledTaskBoard } from "./styles/StyledTaskBoard";
 
+// icons
+// import { FcHighPriority } from "react-icons/fc";
+
 // audio
 import DropAudio from "../../assets/audio/drop.mp3";
 import CheerAudio from "../../assets/audio/cheer.mp3";
 import Modal from "../../components/Modal/Modal";
 
 function TaskBoard() {
+  const {
+    register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm();
+
   const [dropAudio] = useState(new Audio(DropAudio));
   const [cheerAudio] = useState(new Audio(CheerAudio));
 
@@ -26,6 +36,34 @@ function TaskBoard() {
   const handleHideAddTask = () => {
     setShowAddTask(false);
   };
+
+  const onSubmit = (data) => {
+    let timeStamp = Date.now();
+    const newTasks = {
+      ...tasko.tasks,
+      [`task-${timeStamp}`]: {
+        id: `task-${timeStamp}`,
+        content: data,
+      },
+    };
+
+    const newColumns = {
+      ...tasko.columns,
+      "column-1": {
+        ...tasko.columns["column-1"],
+        tasksId: [...tasko.columns["column-1"].tasksId, `task-${timeStamp}`],
+      },
+    };
+
+    const newTasko = {
+      ...tasko,
+      tasks: newTasks,
+      columns: newColumns,
+    };
+    setTasko(newTasko);
+    handleHideAddTask();
+  };
+
   const onDragEnd = (result) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
@@ -112,6 +150,23 @@ function TaskBoard() {
           handleClose={handleHideAddTask}
           title="Add Task"
         >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <label>Title</label>
+            <input {...register("title")} />
+            <label>Description</label>
+            <input {...register("description")} />
+            <label>Project</label>
+            <input {...register("project")} />
+            <label>Priority</label>
+            <select {...register("priority")}>
+              <option value={1}>Medium</option>
+              <option value={2}>High</option>
+              <option value={0}>Low</option>
+            </select>
+
+            <hr />
+            <button type="submit">Add</button>
+          </form>
         </Modal>
       </div>
     </StyledTaskBoard>

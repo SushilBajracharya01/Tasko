@@ -14,5 +14,6 @@ export const StyledColumn = styled.div`
     display: flex;
     flex-direction: column;
     min-height: 150px;
+    height: 80%;
   }
 `;
