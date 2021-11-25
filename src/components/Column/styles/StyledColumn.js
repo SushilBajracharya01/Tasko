@@ -10,4 +10,9 @@ export const StyledColumn = styled.div`
   .title {
     margin-bottom: 0.5rem;
   }
+  .content {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+  }
 `;

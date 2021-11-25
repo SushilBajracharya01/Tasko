@@ -4,18 +4,19 @@ import { Draggable } from "react-beautiful-dnd";
 // Styles
 import { StyledTask } from "./styles/StyledTask";
 
-function Task({ title, project }) {
+function Task({ content, id, index }) {
   return (
-    <Draggable draggableId={title} index={0}>
+    <Draggable draggableId={id} index={index}>
       {(provided, snapshot) => (
         <StyledTask
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          <span>{project}</span>
-          <h2>{title}</h2>
+          <span>{content.project}</span>
+          <h2>{content.title}</h2>
           <p>Description</p>
+          <p>{content.description}</p>
         </StyledTask>
       )}
     </Draggable>
