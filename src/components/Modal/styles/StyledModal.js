@@ -8,13 +8,12 @@ export const StyledModal = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   background: rgba(0, 0, 0, 0.5);
 
   .modal {
     background: #0197f6;
     width: 35%;
-    height: 90%;
     border-radius: 15px;
     padding: 1rem;
 

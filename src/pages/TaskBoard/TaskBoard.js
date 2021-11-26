@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useForm } from "react-hook-form";
@@ -16,6 +17,11 @@ import { StyledTaskBoard } from "./styles/StyledTaskBoard";
 import DropAudio from "../../assets/audio/drop.mp3";
 import CheerAudio from "../../assets/audio/cheer.mp3";
 import Modal from "../../components/Modal/Modal";
+import { StyledAddForm } from "./styles/StyledAddForm";
+import FormInput from "../../components/Inputs/FormInput";
+import FormSelect from "../../components/Inputs/FormSelect";
+import { StyledButton } from "../../components/Buttons/styles/StyledButton";
+import { FaPlus } from "react-icons/fa";
 
 function TaskBoard() {
   const {
@@ -144,29 +150,70 @@ function TaskBoard() {
         </div>
       </DragDropContext>
       <div>
-        <button onClick={handleShowAddTask}>Add</button>
+        <div>
+          <div
+            css={css`
+              position: absolute;
+              right: 65px;
+              bottom: 40px;
+            `}
+          >
+            <StyledButton
+              css={css`
+                padding: 0;
+                width: 70px;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 1000px;
+                :hover {
+                  transform: scale(1.2);
+                }
+              `}
+              onClick={handleShowAddTask}
+            >
+              <FaPlus fontSize="1.8rem" />
+            </StyledButton>
+          </div>
+        </div>
+
         <Modal
           show={showAddTask}
           handleClose={handleHideAddTask}
           title="Add Task"
         >
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>Title</label>
-            <input {...register("title")} />
-            <label>Description</label>
-            <input {...register("description")} />
-            <label>Project</label>
-            <input {...register("project")} />
-            <label>Priority</label>
-            <select {...register("priority")}>
-              <option value={1}>Medium</option>
-              <option value={2}>High</option>
-              <option value={0}>Low</option>
-            </select>
-
-            <hr />
-            <button type="submit">Add</button>
-          </form>
+          <StyledAddForm onSubmit={handleSubmit(onSubmit)}>
+            <FormInput title="Title" register={register} name="title" />
+            <FormInput
+              title="Description"
+              register={register}
+              name="description"
+              type="textarea"
+            />
+            <FormInput title="Project" register={register} name="project" />
+            <FormSelect
+              title="Priority"
+              register={register}
+              name="priority"
+              options={[
+                {
+                  title: "Medium",
+                  value: "1",
+                },
+                {
+                  title: "High",
+                  value: "2",
+                },
+                {
+                  title: "Low",
+                  value: "0",
+                },
+              ]}
+            />
+            <hr className="footer-hr" />
+            <StyledButton type="submit">Add</StyledButton>
+          </StyledAddForm>
         </Modal>
       </div>
     </StyledTaskBoard>

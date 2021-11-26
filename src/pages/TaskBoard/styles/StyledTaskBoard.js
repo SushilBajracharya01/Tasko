@@ -13,4 +13,7 @@ export const StyledTaskBoard = styled.div`
     min-height: 100%;
     display: flex;
   }
+  .footer-hr {
+    margin: 2rem 0 1rem;
+  }
 `;

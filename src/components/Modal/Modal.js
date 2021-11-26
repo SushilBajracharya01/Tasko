@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { StyledModal } from "./styles/StyledModal";
 import { IoClose } from "react-icons/io5";
+import { StyledButton } from "../Buttons/styles/StyledButton";
 
 function Modal({ show, title, handleClose, children, className = "" }) {
   return (
@@ -10,9 +11,9 @@ function Modal({ show, title, handleClose, children, className = "" }) {
           <div className="modal">
             <div className="header">
               <div className="modal-heading Fredoka">{title}</div>
-              <button onClick={handleClose}>
+              <StyledButton onClick={handleClose}>
                 Close <IoClose />
-              </button>
+              </StyledButton>
             </div>
             <hr className="header-hr" />
             <div className={`${className} main`}>{children}</div>
